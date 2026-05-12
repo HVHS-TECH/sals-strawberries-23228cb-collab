@@ -7,8 +7,10 @@ function writeForm(){
 }
 function UIDWrite() {
   console.log("Running UIDWrite")
-  firebase.database().ref('/').set(
+  firebase.database().ref('/').once(
     {
+
+      }
+    )
     }
-  )
-}
+  
