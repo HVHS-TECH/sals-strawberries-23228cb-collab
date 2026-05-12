@@ -21,8 +21,8 @@ function fb_popupLogin() {
 }
 function fb_handleLogin(_user) {
     if (_user) {
-        console.log("User is logged in")
         GLOBAL_user = _user;//Save the user details object to a global variable
+        console.log(_user.displayName+" is logged in")
 
     } else {
         console.log("User is NOT logged in - Starting the popup process")
