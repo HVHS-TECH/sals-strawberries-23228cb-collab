@@ -1,41 +1,33 @@
 
 console.log("Running Sal's Strawberries")
 
-function writeForm(){
-    // Get the form data
-    const favoriteFruit = document.getElementById("favoriteFruit").value;
+function writeForm() {
+  // Get the form data
+  const favoriteFruit = document.getElementById("favoriteFruit").value;
 }
 function UIdWrite() {
   let UID = GLOBAL_user.uid
+  let DisName = GLOBAL_user.displayName
   const Name = document.getElementById("name").value
-  const favoriteFruit=document.getElementById("favoriteFruit").value
-   const fruitAmount=document.getElementById("fruitQuantity").value
+  const favoriteFruit = document.getElementById("favoriteFruit").value
+  const fruitAmount = document.getElementById("fruitQuantity").value
   console.log("Running UIDWrite")
-  
-  firebase.database().ref('/users/'+UID).set(
-  {  
-    Name:Name,
-    fruit:favoriteFruit,
-    fruitNum:fruitAmount,
-  }
-  )
-    }
-  function simpleRead() {
-    let UID = GLOBAL_user.uid
-  console.log("Reading message");
-  firebase.database().ref('/users/'+UID).child('fruit').once('value', display, fb_error);
-  console.log("Leaving simpleRead")
 
+  firebase.database().ref('/users/' + UID).set(
+    {
+      Name: Name,
+      Display_Name: DisName,
+      fruit: favoriteFruit,
+      fruitNum: fruitAmount,
+    }
+  )
 }
-  function display(snapshot) {
-  var dbData = snapshot.val();
-  if (dbData == null) { // if there is no data, dbData will be null.
-  console.log('There was no record when trying to read the message');
-  }
-  else {
-  console.log("The message is: " + dbData)
-  }
-}
-  function fb_error() {
+function fb_error() {
   console.log(errorMessage)
+}
+function genEmail(){
+  const Name = document.getElementById("name").value
+  const favoriteFruit = document.getElementById("favoriteFruit").value
+  const fruitAmount = document.getElementById("fruitQuantity").value
+  console.log('hello '+ Name + ' we heard you like '+ favoriteFruit + ' and you eat '+ fruitAmount)
 }
