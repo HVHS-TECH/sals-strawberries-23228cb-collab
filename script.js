@@ -19,19 +19,23 @@ function UIdWrite() {
     }
   )
 }
-function fb_error() {
-  console.log(errorMessage)
-}
+//function fb_error() {
+//  console.log(errorMessage)
+//}
 
-function genEmail(){
+ async function genEmail(){
   let UID = GLOBAL_user.uid
-  firebase.database().ref('/users/' + UID).orderByValue().once('value', displayEmail, fb_error)
-}
-function displayEmail(snapshot){
- let Name = snapshot.val()['Name']
- let Fruit = snapshot.val()['fruit']
- let fruitAmount = snapshot.val()['fruitNum']
+  var snapshot = await firebase.database().ref('/users/' + UID).orderByValue().once('value')
+  let Name = snapshot.val()['Name']
+  let Fruit = snapshot.val()['fruit']
+  let fruitAmount = snapshot.val()['fruitNum']
   HTML_OUTPUT.innerHTML = "Hello " + Name + " your favorite fruit is " + Fruit + " and you eat " + fruitAmount + "per week"
 }
+//function displayEmail(snapshot){
+ //let Name = snapshot.val()['Name']
+ //let Fruit = snapshot.val()['fruit']
+ //let fruitAmount = snapshot.val()['fruitNum']
+ // HTML_OUTPUT.innerHTML = "Hello " + Name + " your favorite fruit is " + Fruit + " and you eat " + fruitAmount + "per week"
+//}
 
  
