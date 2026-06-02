@@ -1,5 +1,5 @@
 
-const HTML_OUTPUT =document.getElementById('statusMessage')
+const HTML_OUTPUT = document.getElementById('statusMessage')
 console.log("Running Sal's Strawberries")
 
 function UIdWrite() {
@@ -31,6 +31,9 @@ function UIdWrite() {
   let fruitAmount = snapshot.val()['fruitNum']
   HTML_OUTPUT.innerHTML = "Hello " + Name + " your favorite fruit is " + Fruit + " and you eat " + fruitAmount + "per week"
 }
+ async function topFruits(){
+
+ }
 //function displayEmail(snapshot){
  //let Name = snapshot.val()['Name']
  //let Fruit = snapshot.val()['fruit']
